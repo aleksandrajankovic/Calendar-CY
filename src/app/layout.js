@@ -14,36 +14,36 @@ const robotoCondensed = Roboto_Condensed({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://meridianbet.pe"),
-  title: "Calendario Promocional | Meridianbet",
+  metadataBase: new URL("https://meridianbet.com.cy"),
+  title: "Προωθητικό Ημερολόγιο | Meridianbet",
   description:
-    "Mantente al tanto de las ofertas diarias, descubre nuevas promociones y disfruta de recompensas exclusivas con el Calendario Promocional de Meridianbet.",
+    "Μείνε ενημερωμένος για τις καθημερινές προσφορές, ανακάλυψε νέες προωθήσεις και απόλαυσε αποκλειστικές ανταμοιβές με το Προωθητικό Ημερολόγιο της Meridianbet.",
   alternates: {
-    canonical: "/calendario",
+    canonical: "/calendar",
   },
   openGraph: {
-    title: "Calendario Promocional | Meridianbet",
+    title: "Προωθητικό Ημερολόγιο | Meridianbet",
     description:
-      "Mantente al tanto de las ofertas diarias, descubre nuevas promociones y disfruta de recompensas exclusivas con el Calendario Promocional de Meridianbet.",
-    url: "/calendario",
+      "Μείνε ενημερωμένος για τις καθημερινές προσφορές, ανακάλυψε νέες προωθήσεις και απόλαυσε αποκλειστικές ανταμοιβές με το Προωθητικό Ημερολόγιο της Meridianbet.",
+    url: "/calendar",
     siteName: "Meridianbet",
     images: [
       {
         url: "https://cloud.merbet.com/Preview-image/calendar-universal.png",
         width: 1200,
         height: 630,
-        alt: "Calendario Promocional",
+        alt: "Προωθητικό Ημερολόγιο",
       },
     ],
-    locale: "es_PE",
+    locale: "el_GR",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Calendario Promocional | Meridianbet",
+    title: "Προωθητικό Ημερολόγιο | Meridianbet",
     description:
-      "Mantente al tanto de las ofertas diarias, descubre nuevas promociones y disfruta de recompensas exclusivas con el Calendario Promocional de Meridianbet.",
-    images: ["https://cloud.merbet.com/Preview-image/callendar-brazil_1.png"],
+      "Μείνε ενημερωμένος για τις καθημερινές προσφορές, ανακάλυψε νέες προωθήσεις και απόλαυσε αποκλειστικές ανταμοιβές με το Προωθητικό Ημερολόγιο της Meridianbet.",
+    images: ["https://cloud.merbet.com/Preview-image/ccalendar-universal.png"],
   },
   robots: {
     index: true,
@@ -53,6 +53,7 @@ export const metadata = {
     icon: "/src/app/favicon.ico",
   },
 };
+
 
 
 export default function RootLayout({ children }) {
