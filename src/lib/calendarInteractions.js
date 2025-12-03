@@ -3,10 +3,10 @@
 // -----------------------------
 // RENDER MODALA
 // -----------------------------
-function renderModalHTML(entry, lang = "pt") {
+function renderModalHTML(entry, lang = "el") {
   if (!entry) {
-    return lang === "pt"
-      ? "<p>Sem promoções neste dia.</p>"
+    return lang === "el"
+      ? "<p>Δεν υπάρχουν προσφορές για αυτήν την ημέρα.</p>"
       : "<p>No promotions for this day.</p>";
   }
 
@@ -22,8 +22,8 @@ function renderModalHTML(entry, lang = "pt") {
 
   // ako baš nemamo nikakav sadržaj
   if (!promo && !richHtml) {
-    return lang === "pt"
-      ? "<p>Sem promoções neste dia.</p>"
+    return lang === "el"
+      ? "<p>Δεν υπάρχουν προσφορές για αυτήν την ημέρα.</p>"
       : "<p>No promotions for this day.</p>";
   }
 
@@ -42,9 +42,9 @@ function renderModalHTML(entry, lang = "pt") {
   // --- kategorija (žuti label) ---
   let categoryLabel;
   if (type === "special") {
-    categoryLabel = lang === "pt" ? "Promoção especial" : "Special promotion";
+    categoryLabel = lang === "el" ? "Ειδική προσφορά" : "Special promotion";
   } else {
-    categoryLabel = lang === "pt" ? "Promoção semanal" : "Weekly promotion";
+    categoryLabel = lang === "el" ? "Εβδομαδιαία προσφορά" : "Weekly promotion";
   }
 
   // --- button ---
@@ -54,9 +54,9 @@ function renderModalHTML(entry, lang = "pt") {
   const isYellow = buttonColor === "yellow";
 
   const defaultButtonLabel =
-    button || (lang === "pt" ? "Registrar-se" : "Register");
+    button || (lang === "el" ? "Εγγραφή" : "Register");
 
-  // --- HTML struktura: slika → title → žuti label → opis → dugme ---
+  // --- HTML struktura: slika → title → opis → dugme ---
   return `
     <div class="flex flex-col w-full max-w-[420px] mx-auto">
       ${
@@ -71,8 +71,9 @@ function renderModalHTML(entry, lang = "pt") {
       <h2 class="font-bold text-[24px] md:text-[28px] leading-tight mb-2 text-center text-white">
         ${title}
       </h2>
-
-
+  <div class="text-[11px] uppercase tracking-[0.12em] text-[#FACC01] mb-3 text-center">
+        ${categoryLabel}
+      </div>
       ${
         contentHtml
           ? `
@@ -95,6 +96,7 @@ function renderModalHTML(entry, lang = "pt") {
             href="${openUrl}"
             target="_blank"
             rel="noreferrer"
+            data-promo-cta="1"
             class="
               w-4/5 max-w-[360px]
               inline-flex items-center justify-center
@@ -166,7 +168,6 @@ export function initCalendarInteractions(rootSelector = "#calendar-root") {
     dialog.classList.remove("opacity-100", "translate-y-0", "scale-100");
     dialog.classList.add("opacity-0", "translate-y-4", "scale-95");
 
-    // duration mora da se poklopi sa Tailwind `duration-200`
     setTimeout(() => {
       cb?.();
     }, 200);
@@ -174,6 +175,27 @@ export function initCalendarInteractions(rootSelector = "#calendar-root") {
 
   function openModal(entry) {
     content.innerHTML = renderModalHTML(entry, lang);
+
+    // --- TRACKING: klik na CTA dugme u popupu ---
+    const cta = content.querySelector("[data-promo-cta]");
+    if (cta) {
+      cta.addEventListener(
+        "click",
+        () => {
+          if (typeof window !== "undefined") {
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: "calendar_popup_cta_click",
+              lang,
+              day: entry?.day || null,
+              type: entry?.type || null,
+            });
+          }
+        },
+        { once: true }
+      );
+    }
+    // --- KRAJ TRACKING DELA ---
 
     modal.classList.remove("hidden");
     document.body.style.overflow = "hidden";

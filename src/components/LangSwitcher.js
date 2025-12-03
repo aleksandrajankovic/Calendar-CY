@@ -5,8 +5,8 @@ import { useState, useRef, useEffect } from "react";
 
 const LANG_META = {
   el: {
-    flag: "/img/gr.svg",      
-    alt: "Greek(Cyprus)",
+    flag: "/img/gr.svg",
+    alt: "Greek (Cyprus)",
     label: "EL",
   },
   en: {
@@ -20,8 +20,32 @@ export default function LangSwitcher({ year, month, lang, allowedLangs }) {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef(null);
 
-  const activeMeta = LANG_META[lang] ?? LANG_META.pt;
-  const buildHref = (lng) => `/?y=${year}&m=${month}&lang=${lng}`;
+  // ako ne nađe lang, neka bude el kao default, ne pt :)
+  const activeMeta = LANG_META[lang] ?? LANG_META.el;
+
+  // sada menjamo PATH: el → "/", en → "/en"
+  const buildHref = (lng) => {
+    // ako imamo year & month, dodaj u query, inače samo path
+    const hasYearMonth =
+      typeof year === "number" &&
+      !Number.isNaN(year) &&
+      typeof month === "number" &&
+      !Number.isNaN(month);
+
+    const query = hasYearMonth ? `?y=${year}&m=${month}` : "";
+
+    if (lng === "en") {
+      return `/en${query}`;
+    }
+
+    // default je grčki na root
+    if (lng === "el") {
+      return `/${query}`;
+    }
+
+    // fallback – root bezbedno
+    return `/${query}`;
+  };
 
   // zatvori dropdown na klik van
   useEffect(() => {
