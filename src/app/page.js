@@ -5,7 +5,7 @@ import CalendarPageShell from "./CalendarPageShell";
 
 export const metadata = {
   metadataBase: new URL("https://calendar.meridianbet.com.cy"),
-  title: "Ημερολόγιο Προσφορών | Meridianbet Cyprus",
+  title: "Χριστουγεννιάτικο Ημερολόγιο Προσφορών | Meridianbet Κύπρου",
   description:
     "Ανακάλυψε το Χριστουγεννιάτικο Ημερολόγιο Προσφορών της Meridianbet Κύπρου με καθημερινές εκπλήξεις, μπόνους και αποκλειστικές προσφορές όλο τον Δεκέμβριο.",
   keywords: [
@@ -20,7 +20,7 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Ημερολόγιο Προσφορών | Meridianbet Cyprus",
+    title: "Χριστουγεννιάτικο Ημερολόγιο Προσφορών | Meridianbet Κύπρου",
     description:
       "Ανακάλυψε το Χριστουγεννιάτικο Ημερολόγιο Προσφορών της Meridianbet Κύπρου με καθημερινές εκπλήξεις, μπόνους και αποκλειστικές προσφορές όλο τον Δεκέμβριο.",
     url: "/",
@@ -38,7 +38,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ημερολόγιο Προσφορών | Meridianbet Cyprus",
+    title: "Χριστουγεννιάτικο Ημερολόγιο Προσφορών | Meridianbet Κύπρου",
     description:
       "Ανακάλυψε το Χριστουγεννιάτικο Ημερολόγιο Προσφορών της Meridianbet Κύπρου με καθημερινές εκπλήξεις, μπόνους και αποκλειστικές προσφορές όλο τον Δεκέμβριο.",
     images: ["https://cloud.merbet.com/Preview-image/calendar-universal.png"],

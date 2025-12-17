@@ -5,7 +5,7 @@ import CalendarPageShell from "../CalendarPageShell";
 
 export const metadata = {
   metadataBase: new URL("https://calendar.meridianbet.com.cy"),
-  title: "Promotion Calendar | Meridianbet Cyprus",
+  title: "Christmas Promotion Calendar | Meridianbet Cyprus",
   description:
     "Discover the Christmas Promo Calendar at Meridianbet Cyprus with daily surprises, bonuses, and exclusive holiday offers.",
   keywords: [
@@ -20,7 +20,7 @@ export const metadata = {
     canonical: "/en",
   },
   openGraph: {
-    title: "Promotion Calendar | Meridianbet Cyprus",
+    title: "Christmas Promotion Calendar | Meridianbet Cyprus",
     description:
       "Discover the Christmas Promo Calendar at Meridianbet Cyprus with daily surprises, bonuses, and exclusive holiday offers.",
     url: "/en",

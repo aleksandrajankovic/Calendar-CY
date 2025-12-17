@@ -203,7 +203,9 @@ export default async function CalendarPageShell({ searchParams, defaultLang }) {
           "
         >
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white md:text-left text-center">
-            {lang === "el" ? "Ημερολόγιο Προσφορών" : "Promotion Calendar"}
+            {lang === "el"
+              ? "Χριστουγεννιάτικο Ημερολόγιο"
+              : "Christmas Calendar"}
           </h1>
 
           {isAdmin && (
